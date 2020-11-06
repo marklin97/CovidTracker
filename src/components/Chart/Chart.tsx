@@ -21,6 +21,7 @@ const Chart: React.FC<ChartProps> = ({
   useEffect(() => {
     const fetchAPI = async () => {
       const response = await fetchDailyData();
+      console.log(response);
       setDailyData(response);
     };
     fetchAPI();
@@ -33,14 +34,14 @@ const Chart: React.FC<ChartProps> = ({
           {
             data: dailyData.map(({ confirmed }) => confirmed),
             label: 'Infected',
-            borderColor: '#333ff',
+            borderColor: '#3333ff',
             fill: true,
           },
           {
             data: dailyData.map(({ deaths }) => deaths),
             label: 'Deaths',
             borderColor: 'red',
-            backgroundColor: 'rgba(255,0,0,0.5)',
+            backgroundColor: 'rgba(255, 0, 0, 0.5)',
             fill: true,
           },
         ],
@@ -74,7 +75,9 @@ const Chart: React.FC<ChartProps> = ({
     />
   ) : null;
   return (
-    <div className={styles.container}>{countryName ? barChart : lineChart}</div>
+    <div className={styles.container}>
+      {countryName && countryName != 'global' ? barChart : lineChart}
+    </div>
   );
 };
 export default Chart;
