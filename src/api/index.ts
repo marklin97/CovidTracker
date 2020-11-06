@@ -7,6 +7,9 @@ const url = 'https://covid19.mathdro.id/api';
  */
 const fetchData = async (country?: string) => {
   let changeableUrl = url;
+  if (country === 'global') {
+    country = undefined;
+  }
   if (country) {
     changeableUrl = `${url}/countries/${country}`;
   }

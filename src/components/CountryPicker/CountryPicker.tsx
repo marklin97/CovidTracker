@@ -9,7 +9,6 @@ interface CountryProps {
 }
 
 const CountryPicker: React.FC<CountryProps> = ({
-  country,
   onSelection,
 }): JSX.Element => {
   const [fetchedCountries, setCountries] = useState<any>();
@@ -29,8 +28,8 @@ const CountryPicker: React.FC<CountryProps> = ({
         <option value='global'>Global</option>
 
         {fetchedCountries ? (
-          fetchedCountries.map((countryName, i) => (
-            <option key={i}>{countryName}</option>
+          fetchedCountries.map((country, i) => (
+            <option key={i}>{country}</option>
           ))
         ) : (
           <option>Data not fetched...</option>

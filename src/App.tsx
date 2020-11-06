@@ -26,7 +26,7 @@ const App: React.FC = (): JSX.Element => {
       <img className={styles.image} src={image} alt='COVID-19' />
       <Cards data={data} />
       <CountryPicker country={country} onSelection={handleCountrySelection} />
-      <Chart data={data} country={country} />
+      <Chart data={data} countryName={country} />
     </div>
   );
 };

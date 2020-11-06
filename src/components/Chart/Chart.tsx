@@ -11,11 +11,11 @@ interface CovidData {
 }
 interface ChartProps {
   data: CovidData;
-  country?: string;
+  countryName?: string;
 }
 const Chart: React.FC<ChartProps> = ({
   data,
-  country,
+  countryName,
 }: ChartProps): JSX.Element => {
   const [dailyData, setDailyData] = useState<any>();
   useEffect(() => {
@@ -69,12 +69,12 @@ const Chart: React.FC<ChartProps> = ({
       }}
       options={{
         legend: { display: false },
-        title: { display: true, text: `Current state in ${country}` },
+        title: { display: true, text: `Current state in ${countryName}` },
       }}
     />
   ) : null;
   return (
-    <div className={styles.container}>{country ? barChart : lineChart}</div>
+    <div className={styles.container}>{countryName ? barChart : lineChart}</div>
   );
 };
 export default Chart;

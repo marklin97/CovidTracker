@@ -11,7 +11,7 @@ interface CovidData {
   lastUpdate: string;
 }
 interface CardProps {
-  data: CovidData;
+  data?: CovidData;
 }
 
 const Cards: React.FC<CardProps> = ({ data }: CardProps): JSX.Element => {
